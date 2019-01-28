@@ -1,0 +1,2958 @@
+/* 
+    Cascading Style Sheets is a language that describes the style of an HTML document.
+    CSS describes how HTML elements should be displayed on screen.
+*/
+
+/* 
+
+When tags like <font>, and color attributes were added to the HTML 3.2 specification, 
+it started a nightmare for web developers. Development of large websites, where fonts and color information were added 
+to every single page, became a long and expensive process
+
+CSS was created by the World Wide Web Consortium (W3C).
+
+The style definitions are normally saved in external .css files.
+
+With an external stylesheet file, you can change the look of an entire website by changing just one file!
+You dont have to go on every HTML element and change the properties of it.
+
+*/
+
+/* 
+
+CSS selectors: are used to find HTML elements based on their element name, id, class, attribute and more.
+
+Element selector: Any HTML element tag, which selects every element on the page you choose. --> example: p,h1,span,div
+
+ID selector: Used for one unique element as we saw in HTML --> example: #unique-element
+
+Class selector: Used for more overall purposes like we saw in HTML --> example .center, .box, .showcases
+
+Element and class selector: We can specify that only specific HTML elements should be affected by a class. --> p.center, p.box, p.showcases
+
+HTML elements can also refer to more than one class.
+
+*/
+
+p { /* element selector */
+    color: blue; /* CSS declaration */
+    font-size: 20px; /* Composed of name/values and are separated by semi-colons; */
+}/* End of declaration block */
+
+#id-selector { /* ID selector */
+    color: red;
+    font-size: 20px;
+}
+
+.class-selector { /* Class selector */
+    color: orange;
+    font-size: 20px;
+}
+
+.class-selector2 { /* Class selector 2 */
+    text-align: center;
+}
+
+/* Grouping Selectors */
+
+/* These three declaration blocks */
+h1 {
+    text-align: center;
+    color: red;
+}
+  
+h2 {
+    text-align: center;
+    color: red;
+}
+
+p {
+    text-align: center;
+    color: red;
+}
+
+/* are the same as */
+
+h1, h2, p {
+    text-align: center;
+    color: red;
+}
+
+/* 
+
+Three was of inserting a style sheet:
+
+Inline Style -->  Add the style attribute to the relevant element, where that attribute can contain any number of CSS declarations. Used to apply VERY UNIQUE style to a SINGLE element
+Internal Style --> Defined wihtin the <style> element inside the <head> section. Only used if ONE PAGE HAS AN VERY UNIQUE style.
+External Style --> Each page must include a reference to the external style sheet file inside the <link> element where the <link> element lies inside the <head> section.
+
+Cascading Order for different stylesheets: (number one has the highest priority)
+
+1. Inline Style
+2. External and internal styles. (if external is before internal, then internal is the one to win the priority. If internal is before external, then external wins the priority.)
+3. Browser default
+
+*/
+
+/*----------------
+    CSS COLORS 
+-----------------*/
+
+/* Specified using predefined colors, RGB, HEX, HSL, RGBA, HSLA values.
+
+/* Background Colors */
+h1 {
+    background-color: black;
+}
+
+/* Text Color */
+h1 {
+    color: white;
+}
+
+/* Border Color */
+h1 {
+    border: 2px solid Tomato; /* border thickness, border style, border color */
+}
+
+/* Color values */
+
+/* 
+
+RGB is defined as rgb(red, green, blue) where colors range from 0 to 255. 0 represents black and 255 represents white.
+Shades of gray are often defined by using equal values for all the 3 light sources. 
+
+*/
+
+/*
+
+HEX is defined as #rrggbb where rr, gg and bb are hexadecimal values between 00 to ff (0 - 255 in decimal).
+The same concept applies here for shades of gray 
+
+*/
+
+/*
+
+HSL value is defined as hsl(hue, saturation, lightness) where 
+HUE: is a degree on the color wheel from 0 to 360. 0 is red, 120 is green and 240 is blue.
+Saturation: percentage value where 0% means a shade of gray and 100% is full color.
+Lightness: percentage value where 0% is black, 50% is neither light or dark, youll be able to see the full color and 100% is white.
+
+*/
+
+/* 
+
+RGBA and HSLA have alpha values which means tha you can control the transparency with values like 0.0 which is full transparent and 1.0 which is not transparent at all.
+
+*/
+
+h1 {background-color: rgb(255, 99, 71); /* RGB */}
+h1 {background-color: #ff6347;} /* HEX */
+h1 {background-color: hsl(9, 100%, 64%);} /* HSL */
+h1 {background-color: rgba(255, 99, 71, 0.5);} /* RGBA */
+h1 {background-color: hsla(9, 100%, 64%, 0.5);} /* HSLA */
+
+/*--------------------
+    CSS BACKGROUNDS 
+---------------------*/
+
+/*
+
+CSS bakcground properties:
+
+background-color
+background-image
+background-repeat
+background-attachment: specify that the background image should be fixed, when scrolling down, image will always be in the background.
+background-position
+
+shorthand property --> background: #ffffff url("img_tree.png") no-repeat right top;
+
+*/
+
+body {
+    background-color: lightblue;
+}
+
+body {
+    background-image: url("sample.jpeg") /* by default the image is repeated both horizaontally and vertically, so it covers the whole elment */
+}
+
+body{
+    background-repeat: repeat-x /* horizontally */
+}
+
+body{
+    background-repeat: no-repeat /* no repeating */
+}
+
+body{
+    background-repeat: repeat-y /* vertically */
+}
+
+body{
+    background-position: right top;
+}
+
+body{
+    background-attachment: fixed;
+}
+
+/* background shorthand property */
+body{
+    background: #ffffff url("sample.jpeg") no-repeat right top;
+}
+
+/*-----------------------------
+    CSS AVANCED BACKGROUNDS 
+-----------------------------*/
+
+/*
+    Let's see some advanced techniques for CSS backgrounds like:
+        Multiple backgrounds
+        Background size
+        Sizes of Multiple background images
+        Full size background image
+        Hero image --> You could also use different background properties on a <div> to create a hero image (a large image with text), and place it where you want
+        Background origin --> background-origin property specifies where the background image is positioned.
+        Background clip --> property specifies the painting area of the background.
+
+        use: https://www.w3schools.com/css/css3_backgrounds.asp to check out the examples or just copy paste the example codes into codepen to check it out. 
+
+*/
+
+/* Multiple Backgrounds */
+
+#example1 {
+    background-image: url(img_flwr.gif), url(paper.gif); /* the images are stacked on top of each other, */
+    background-position: right bottom, left top; /* first image is aligned to the bottom and right and the second one to the top-left corver. */
+    background-repeat: no-repeat, repeat; /* first image doesnt repeat and the second one does */
+}
+
+/* short hand property */
+#example1 {
+    background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+}
+
+/* Background size */
+#div1 {
+    background: url(img_flower.jpg);
+    background-size: 100px 80px; /* size of the background image, you can also have contain or cover */
+    background-repeat: no-repeat;
+}
+
+/* 
+    cover: cover keyword scales the background image so that the content area is completely covered by the background image at all times.
+    contain: contain keyword scales the background image to be as large as possible
+*/  
+
+/* hero image */
+
+.hero-image {
+    background: url(img_man.jpg) no-repeat center; 
+    background-size: cover; /* covers the whole div */
+    height: 500px;
+    position: relative; /* relative so the text can be placed by declaring abosulte to it */
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute; /* now it will only stick to the div, since the div is relative */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* background origin */
+
+/* 
+    background-origin values:
+
+    border-box - the background image starts from the upper left corner of the border
+    padding-box - (default) the background image starts from the upper left corner of the padding edge
+    content-box - the background image starts from the upper left corner of the content
+
+*/
+
+#example1 {
+    border: 10px solid black;
+    padding: 35px;
+    background: url(img_flwr.gif);
+    background-repeat: no-repeat;
+    background-origin: content-box; /* <--  image starts from the upper left corner of the content */
+}
+
+/* background clip */
+
+/* 
+    background-clip values:
+
+    border-box - (default) the background is painted to the outside edge of the border
+    padding-box - the background is painted to the outside edge of the padding
+    content-box - the background is painted within the content box
+
+*/
+
+#example1 {
+    border: 10px dotted black;
+    padding: 35px;
+    background: yellow;
+    background-clip: content-box;
+}
+
+/*---------------
+    CSS UNITS 
+----------------*/
+
+/*
+
+    Many CSS properties take length values -> wdith, height, margin, padding, font-size, border-width, etc.
+
+    Ex: 20px
+        *NOTE: a whitespace cannot happen between the number and the unit.
+
+    Two types of units:
+        absolute: sets text to a specifified size, it is useful when we know the physical size of the output.
+            --> cm = centimeters
+                mm = millimeters
+                in = inches (1in = 96px = 2.54cm)
+                px = pixels (1px = 1/96th of 1in) --> relative to the viewing device.
+                pt = points (1pt = 1/72 of 1in)
+                pc = picas (1pc = 12 pt)
+
+        relative: sets the size relative to the surrounding elements. ( em, % )
+            --> em = Relative to the font-size of the element (2em means 2 times the size of the current font)
+                ex = Relative to the x-height of the current font (rarely used)
+                ch = Relative to width of the "0" (zero)
+                rem = Relative to font-size of the root elemen
+                vw = Relative to 1% of the width of the viewport*
+                vh = Relative to 1% of the height of the viewport*
+                vmin = Relative to 1% of viewport's* smaller dimension
+                vmax = Relative to 1% of viewport's* larger dimension           
+                % = Relative to the parent element
+            
+*/
+
+/*---------------
+    CSS BORDERS 
+----------------*/
+
+/*
+
+CSS border properties:
+
+border-width: width can be set in px, pt, cm, em, etc, where you can also specify each of the borders like top, right, bottom and left, or use shorthand notation.
+border-style: where you can also specify each of the borders like top, right, bottom and left, or use shorthand notation.
+border-color: can be specified by name, rbg or hsl where you can also specify each of the borders like top, right, bottom and left, or use shorthand notation.
+border-radius: round corners of an element
+
+shorthand property --> border: 5px solid red;
+
+*/
+
+ /* border style */
+p{
+    border-style: dotted; /* whole border */
+}
+
+p{
+    border-top-style: dashed; /* top border */
+}
+
+p{
+    border-right-style: solid; /* right border */
+}
+
+p{
+    border-left-style: groove; /* left border */
+}
+
+p{
+    border-bottom-style: double; /* bottom border */
+}
+
+/* short hand notation */
+ p{
+    border-style: dotted solid double dashed; /* top, right, bottom, left */
+ }
+
+ p{
+    border-style: dotted solid double; /* top, right-left, bottom */
+ }
+
+ p{
+    border-style: dotted solid; /* top, bottom right, left */
+ }
+
+ p{
+    border-style: dotted; /* all four */
+ }
+
+ /* border width */
+ p{
+     border-width: 5px;
+ }
+
+ p{
+    border-top-width: 10px; /* top border */
+}
+
+p{
+    border-right-width: 10px; /* right border */
+}
+
+p{
+    border-left-width: 10px; /* left border */
+}
+
+p{
+    border-bottom-width: 10px; /* bottom border */
+}
+
+/* short hand notation */
+ p{
+    border-width: 5px 5px 5px 5px; /* top, right, bottom, left */
+ }
+
+ p{
+    border-width: 5px 5px 5px; /* top, right-left, bottom */
+ }
+
+ p{
+    border-width: 5px 5px; /* top, bottom right, left */
+ }
+
+ p{
+    border-width: 5px; /* all four */
+ }
+
+ /* border color */
+ p{
+    border-color: blue;
+}
+
+p{
+   border-top-color: green; /* top border */
+}
+
+p{
+   border-right-color: yellow; /* right border */
+}
+
+p{
+   border-left-color: blueviolet; /* left border */
+}
+
+p{
+   border-bottom-color: orange; /* bottom border */
+}
+
+/* short hand notation */
+p{
+   border-color: yellow blue red black; /* top, right, bottom, left */
+}
+
+p{
+   border-color: red yellow blue; /* top, right-left, bottom */
+}
+
+p{
+   border-color: yellow red; /* top, bottom right, left */
+}
+
+p{
+   border-color: red; /* all four */
+}
+
+/* border radius */
+p{
+    border-radius: 5px;
+}
+
+/* border shorthand property */
+p{
+    border: 5px solid red;
+}
+
+/*----------------
+    CSS MARGINS 
+-----------------*/
+
+/*
+
+Margins properties are used to create space around elements, outside of any defined borders.
+
+CSS margin properties:
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+
+All the margin properties can have:
+
+auto - the browser will calculate the margin and it usually does not grow wider than the parent container.
+px, pt, cm, etc.
+% - specifies a margin in % of the width of the containing element.
+inherit - specifies that the margin should be inherited from the parent element. 
+
+width: auto vs width 100% ?
+
+width:100% will cause a p element to full the parent’s content space. In this case, it will match the CSS-specified width of 400px for the parent div.
+
+width:auto works a little bit differently, and has a couple different possible behaviors, influenced by the current display style. p tags start as display:block so they do the same thing as width:100% 
+- filling their parents.
+
+However, if you set a display:inline-block element to width:auto, it will only expand to fit its children. This is useful if you want adjustable-width containers that are sized based on what’s inside them.
+
+In this case they look the same because the second p tag is not set to display:inline-block or display:inline, but retains its default display:block style.
+
+*NOTE: Width property specifies the width of the element's CONTENT area
+
+*/
+
+p {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+/* short hand notation */
+p{
+    margin-top: 10px 10px 10px 10px; /* top, right, bottom, left */
+ }
+ 
+ p{
+    margin-right: 20px 20px 20px; /* top, right-left, bottom */
+ }
+ 
+ p{
+    margin-bottom: 10px 10px; /* top, bottom right, left */
+ }
+ 
+ p{
+    margin-left: 20px; /* all four */
+ }
+
+ /* The AUTO value */
+ div{
+     width: 1000px;
+ }
+ 
+span{
+     width: auto;
+     border: 2px solid orange;
+     display: inline-block /* if you leave this to block or inline, the width will be have as such, by respecting the rules of block level elements and inline level elements. */
+ }
+
+ /* Centering Elements */
+
+div {
+    width: 300px;
+    margin: 0 auto; /* The element will then take up the specified width, and the remaining space will be split equally between the left and right margins: */
+    border: 2px solid orange;
+}
+
+span {
+    width: inherit; /* inherit the width from the div which is 300px */
+}
+
+/* Margin Collapse */
+/*
+
+In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+
+*/
+
+h5 {
+    margin: 0 0 50px 0; /* Bottom margin is 50px */
+}
+  
+h6 {
+    margin: 20px 0 0 0; /* Top margin is 20px */
+}
+
+/*-----------------
+    CSS PADDING 
+------------------*/
+
+/*
+
+Padding properties are used to generate space around an element's content, inside of any defined borders.
+
+CSS padding properties:
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+
+All the padding properties can have:
+
+px, pt, cm, etc.
+% - specifies a margin in % of the width of the containing element.
+inherit - specifies that the margin should be inherited from the parent element. 
+
+*/
+
+div {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+/* short hand notation */
+div {
+    padding-top: 10px 10px 10px 10px; /* top, right, bottom, left */
+ }
+ 
+ div {
+    padding-right: 20px 20px 20px; /* top, right-left, bottom */
+ }
+ 
+ div {
+    padding-bottom: 10px 10px; /* top, bottom right, left */
+ }
+ 
+ div {
+    padding-left: 20px; /* all four */
+ }
+
+ /* Padding and Element Wdith */
+
+ /*
+    if an element has a specified width, the padding added to that element will be added to the total width of the element. This is often an undesirable result
+
+    In the following example, the <div> element is given a width of 300px. However, the actual rendered width of the <div> element will be 350px (300px + 25px of left padding + 25px of right padding):
+ */
+
+div {
+    width: 300px;
+    padding: 25px;
+}
+
+/* 
+
+  if you wish to keep the width at 300px no matter the amount of padding, you need to use the box-sizing property. If you increase the padding, 
+  the available content space with decreases. Note that the border is also taken into account with box-sizing. 
+
+*/
+
+div {
+    width: 300px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/*--------------------------
+    CSS HEIGHT AND WIDTH 
+--------------------------*/
+
+/*
+    Height and Width are properties that are used to set the height and width of an element's container.
+
+    Height and Width set to AUTO means that the browser calculates the height and width automatically. This is the DEFAULT setting. 
+
+    The height and width properties can have:
+
+    px, pt, cm, % of the containing block.
+
+    Note: The height and width properties do not include padding, borders, or margins; they set the height/width of the containers area. Use box-sizing for padding and borders to be included.
+    
+*/
+
+div {
+    height: 200px;
+    width: 50%;
+    background-color: powderblue;
+}
+
+/* max-width */
+
+/* The default value for the max-width of an element is none.
+
+    The max-width properties can have:
+
+    px, pt, cm, % of the containing block.  
+
+    *NOTE: The value of the max-width overrides width
+    
+    Mostly used for responsive websites!
+*/
+
+div {
+    max-width: 500px;
+    height: 100px;
+    background-color: powderblue;
+}
+
+/*--------------------
+    CSS BOX MODEL 
+--------------------*/
+
+/*
+    All HTML elements are considered as boxes.
+
+    Every HTML element has:
+
+    margins: transparent spacing outside the border. 
+    borders: borders go around the padding and it defines its outline
+    paddings: transparent spacing between the content and the border.
+    content: Content of the box where text or image appears
+
+    *NOTE: to calculate the full size of an element, you need to add the padding borders and margins. Remember that the height and width on an element represent the height and width of the content area.
+
+*/
+
+div{
+    width: 300px;
+    border: 25px solid green; /* 25 px all around */
+    padding: 25px; /* 25 px all around */
+    margin: 25px; /* 25 px all around */
+}
+/* 
+    Total width: width + left padding + right padding + left border + right border + left margin + right margin
+    Total height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+*/
+
+/*-----------------
+    CSS OUTLINE 
+-----------------*/
+
+/*
+
+Outline propertie is a line that is drawn outside the borders to make the element stand-out.
+
+*NOTE: Outlines may overlap other content. IT IS NOT PART OF AN ELEMENTS DIMENSIONS. The elements total width and height is not affected by the outline. 
+
+CSS outline properties:
+
+outline-style
+outline-color
+outline-width
+outline-offset: add's space between the outline and the border of an element
+outline: short hand property where you can specify one, two or three values by using the outline-width, outline-style(required) or outline-color. 
+
+There is no shorthand notations for individual assignment for each different side of the element. 
+
+*/
+
+ /* outline style */
+ p{
+    outline-style: dotted; /* whole border */
+}
+
+ /* outline width */
+ p{
+    outline-width: 5px;
+ }
+
+ /* border color */
+ p{
+    outoutlineline-color: blue;
+}
+
+/* outline shorthand property */
+p{
+    outline: dashed;
+}
+
+p{
+    outline: dotted red;
+}
+
+p{
+    outline: 5px solid red;
+}
+
+p{
+    outline: thick ridge pink;
+}
+
+/* outline offset */
+
+p{
+    outline-offset: 15px;
+}
+
+/*-------------
+    CSS TEXT 
+--------------*/
+
+/*
+    color: defines text color in an element
+    text-align: defines the horizontal alignment of a text.
+        left
+        right
+        center
+        justified: value stretches the lines so that each line has equal width (like in newspapers and magazines).
+    text-decoration: sets or removes decorations from text
+        none
+        overline
+        line-through
+        underline
+    text-transform: specify uppercase, lowercase or capitalization in a text.
+    text-indent: value represents the indentation of the first line of a text.
+    letter-spacing: value represents space between the characters. 
+    line-height: value represents space between the lines.
+    direction: property used to change the text direction of an element. like right-to-left(rtf)
+    word-spacing: value represents space between the words.
+    text-shadow: adds shadow to text by specifying the horizontal shadow, vertical shadow and the color of the shadow. 
+    
+*/
+
+/* color */
+div{
+    color: red;
+}
+
+/* text align */
+div{
+    text-align: right;
+}
+
+/* text decoration */
+div {
+    text-decoration: overline;
+}
+
+/* text transform */
+div{
+    text-transform: capitalize;
+}
+
+/* text indentation */
+div{
+    text-indent: 10px;
+}
+
+/* letter spacing */
+div{
+    letter-spacing: 40px;
+}
+
+/* line height */
+div{
+    line-height: 30px;
+}
+
+/* text direction */
+div{
+    direction: rtf;
+}
+
+/* word spacing */
+div{
+    word-spacing: 50px;
+}
+
+/* text shadow */
+div{
+    text-shadow: 2px 2px black;
+}
+
+/*-------------
+    CSS FONT 
+--------------*/
+
+/* 
+    CSS font properties are:
+
+    font-family: 
+        (Generic font families)
+        Serif: have small lines at the ends on some characters
+        Sans-Serif: "Sans" means without, therefore, they do NOT have small lines at the ends of characters. <-- Easier to read on computer screens
+        Monospace: All monospace characters have the same width
+
+        This property should hold several font names in order to have a plan B, just in case one font fails to load or it is not supported by the browser.
+
+        It starts with the priority font and ends with a generic font family.
+
+    boldness: weight of a font.
+        normal
+        bold
+        bolder
+
+    size: It can be absolute or relative size
+        absolute: sets text to a specifified size, it is useful when we know the physical size of the output. ( px, pt, cm )
+        relative: sets the size relative to the surrounding elements. ( em, % )
+        DEFAULT SIZE FOR NORMAL TEXT --> 16px or 1em
+
+    style: mostly used to specify italic text.
+        normal: text is shown normal
+        italic: text is shown in italic
+        oblique: text is leaning, similar to italic but less supported
+
+*/
+
+/* font family */
+body{
+    font-family: Arial, "Times New Roman", serif;
+}
+
+/* font style */
+p{
+    font-style: oblique;
+}
+
+/* font size */
+h1{
+    font-size: 40px;
+}
+
+p{
+    font-size: 14px;
+}
+
+/* The use of the em */
+
+/*
+
+it is a unit that is relative to the currently chosen font size. Unless you have overridden font style by setting your font size with an absolute unit (such as px or pt), 
+this will be affected by the choice of fonts in the user's browser or OS if they have made one, so it does not make sense to use em as a general unit of length except where you 
+specifically want it to scale as the font size scales.
+
+Use em when you specifically want the size of something to depend on the current font size.
+
+*/
+
+p{
+    font-size: 0.875em; /* of the whole web site. Since the default is 16px, then it is 0.875*16 = 14px. If the body had a font-size of 30px, then 16px would become 30px and you redo the math */
+}
+
+/* % and em together */
+
+/* 
+
+    Best way to use font-size is to set the font-size in percent for the <body> element 
+
+    While using the percent unit, your text remains fully scalable for mobile devices and for accessibility
+
+    WHAT is the font size relative to when using %?
+        Well all browsers have different default sizes. Example, firefox and google chrome have default sizes of 16px. This can be checked in the user settings for the browser.
+        Therefore, every time you put font-size: 100 % for the body, it means that it is 100% relative to the browsers default, which is 16px in our case.
+        It is best practice to use % for the body since a lot of browsers have different defautl sizes and the user might change that default size. 
+
+*/
+
+body{
+    font-size: 100%; /* allows browser to zoom or resize the text */
+}
+
+p{
+    font-size: 0.875em;
+}
+
+/* font weight */
+
+p{
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE FONT SIZE */
+
+/*
+
+    The text size can be set with a vw unit, which means the "viewport width"
+
+    The font will scale when you resize the window
+
+    Viewport is the browser window size. 1 vw = 1% of the viewport WIDTH. 
+    If the viewport has a width of 50cm, then 1vw = 0.5cm.
+
+*/
+
+h1{
+    font-size: 10vw;
+}
+
+/* font variant */
+
+/* 
+
+    Specifies if a text should be displayed in a small-caps font.
+
+*/
+
+p{
+    font-variant: small-caps; /* could also be normal which is the default */
+}
+
+/*---------------
+    CSS ICONS 
+----------------*/
+
+/* 
+
+Font awesome and google icons allows you to add icons to your web page by using inline elements like <i> or <span>.
+
+All The icons in the library are scalable vectors that can be customized with CSS.
+
+To use font awesome you need to add --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> in the <head>
+
+To use google icons you need to add --> <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> in the <head>
+
+Use classes and their values to reference the icons you want.
+
+*/
+
+/*---------------
+    CSS LINKS 
+----------------*/
+
+/* 
+
+    Links can be styled with any CSS property (e.g. color, font-family, background, etc.
+
+    Links can be styled differently depending on what STATE they are:
+        a:link --> normal
+        a:visisted --> link was visited
+        a:hover --> you are hovering with your mouse over the link
+        a:active --> you are currently clicking it
+
+        a:hover MUST come after a:link and a:visited
+        a:active MUST come after a:hover
+
+        ORDER --> LVHA
+*/
+
+a:link{
+    color: red;
+}
+
+a:visited{
+    color: green;
+}
+
+a:hover{
+    color: hotpink;
+}
+
+a:active{
+    color: blue;
+}
+
+/* Text decoration */
+
+/* 
+
+    Used to remove lines from links
+
+*/
+
+a{
+    text-decoration: none;
+}
+
+
+/* background color */
+
+a{
+    background-color: #ff6347;
+}
+
+/*---------------
+    CSS LISTS 
+----------------*/
+
+/*
+    CSS Lists allows you to:
+        Set different list item markers for ordered lists and unordered lists
+        Set an image as the list marker
+        Add background colors to list and list items
+
+    Short-hand property: 
+        list-type, list-position, list-image
+
+*/
+
+/* Defining List Item Markers */
+
+ul{
+    list-style-type: circle; /* if you use none, it removes the item markers */
+}
+
+/* Add an image as an item marker */
+ul{
+    list-style-image: url("circle.jpeg");
+}
+
+/* Position list marker */
+
+/*
+
+    outside: means that the bullet points are outside the list item.
+    inside: means that the bullet points are part of the list item.
+
+*/
+
+a{
+    list-style-position: outside;
+}
+
+/* short hand property */
+
+ul{
+    list-style: square inside url("circle.jpeg");
+}
+
+/*---------------
+    CSS TABLES 
+----------------*/
+
+/* table borders */
+
+table{
+    border: 1px solid black;
+}
+
+th{
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+}
+
+/* Collapse Table borders */
+
+table{
+    border-collapse: collapse;
+}
+
+/* Table width and height */
+
+table{
+    width: 100%;
+}
+
+th{
+    height: 50px;
+}
+
+/* Horizontal alignment */
+
+th{
+    text-align: left;
+}
+
+/* Vertical alignment */
+
+th{
+    vertical-align: bottom;
+}
+
+/* Table padding */
+
+th, td{
+    padding: 15px;
+}
+
+/* Horizontal dividers */
+
+th, td{
+    border-bottom: 1px solid #ddd; /* make sure the table doesnt have a border */
+}
+
+/* Hoverable table */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Striped Tables */
+tr:nth-child(even){
+    background-color: red;
+}
+
+/* Table color */
+th{
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Responsive Table */
+
+/* 
+
+    A responsive table will display a horizontal scroll bar if the screen is too small to display the full content.
+
+    add a container element live <div> with a table inside and use the overflow-x: auto on that div.
+
+*/
+
+/*----------------
+    CSS DISPLAY 
+-----------------*/
+
+/* 
+    Most IMPORTANT property for controlling layout. 
+
+    Every element has a default display property which are usually block or inline.
+
+    Block-level element:
+        Always starts on a new line and takes up the full width available. (CAN set the height and the width)
+
+        <div>
+        <h1> - <h6>
+        <p>
+        <form>
+        <header>
+        <footer>
+        <section>
+    
+    Inline-level element:
+        Does NOT start on a new line and only takes as much width as necessary. (CAN'T set the height and the width)
+
+        <span>
+        <a>
+        <img>
+
+        The top and bottom margins/paddings are NOT respected. Borders all around are respected.
+
+    Display: none is used with JavaScript to hide or show elements without deleting and recreating them
+    You can also use visibility: hidden.
+
+    Display: none VS Visiblity: hidden
+
+        visibility:hidden -> hides the element, but it still takes up space in the layout.
+
+        display:none -> removes the element from the document. It does not take up any space.
+
+*/
+
+/* Override default display value */
+
+li{
+    display: inline;
+}
+
+/* hide element 1 */
+
+a{
+    display: none;
+}
+
+/* hide element 2 */
+a{
+    visibility: hidden;
+}
+
+/*------------------
+    CSS MAX-WIDTH 
+-------------------*/
+
+/*
+
+Setting the width of a block-level element will prevent it from stretching out to the edges of its container. Then, you can set the margins to auto,
+to horizontally center the element within its container. The element will take up the specified width, and the remaining space will be split equally 
+between the two margins.
+
+IF YOU RESIZE THE WINDOW, You'll notice that the element will keep its xxx px, therefore cutting the element when the viewports width is smaller than xxx px;
+
+Using max-width: xxx px, you can correct this in order to have a responsive element. In this case, the element won't be bigger than xxx px and at the same time it 
+can be smaller than xxx px.
+
+*/
+
+/*------------------
+    CSS POSITION
+-------------------*/
+
+/*
+
+An HTML element has different types of positions that you can assign to it:
+    static <-- DEFAULT
+    relative
+    fixed
+    absolute
+    sticky
+
+    AFTER a position has been specified, you can use the top, bottom, left and right properties to position the element on screen.
+    
+*/
+
+/*
+
+STATIC:
+    Not positioned in any special way, it is always positioned according to the normal flow of the page. In other words, it just follows the regular HTML flow. 
+
+*/
+
+div.static {
+    position: static;
+    border: 3px solid #73AD21;
+}
+
+/*
+
+RELATIVE:
+    It is positioned relative to its static/normal position. If you use the top, bottom, left and right properties, you can change where the element is placed on the screen.
+    In other words, it is positioned relative to itself.
+
+*/
+
+div.relative {
+    position: relative;
+    left: 30px; /* 30px to the left from its original position */
+    border: 3px solid #73AD21;
+}
+
+/*
+
+FIXED:  
+    Positioned relative to the viewport/browser screen, which means that it will ALWAYS stay on the page even if you scroll up and down.
+    The top, right, bottom, and left properties are used to position the element.
+
+*/
+
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+
+/*
+
+ABSOLUTE:  
+    An element with absolute positioning is positioned relative to the nearest position ancestor. In other words, by using top, bottom, left and right, 
+    these values will be relative to the next parent element with relative (or absolute) positioning.
+
+    If there is no such parent, it will default all the way back up to the <html> (document body) element itself meaning it will be placed relatively to the page itself.
+    
+    Absolute positioning is that these elements are removed from the flow of elements on the page. An element with this type of positioning is not affected by 
+    other elements and it doesn't affect other elements. 
+
+    NOTE: This is a very powerful type of positioning that allows you to literally place any page element exactly where you want it.
+
+*/
+
+div.relative {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21;
+} 
+  
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+
+/*
+
+STICKY:  
+    Positioned based on the user's scroll position. A sticky element toggles between relative and fixed, depending on the scroll position. 
+    It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
+
+    In the following example, the sticky element sticks to the top of the page (top: 0), when you reach its scroll position.
+*/
+
+div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: green;
+    border: 2px solid #4CAF50;
+}
+
+/* OVERLAPING Elements */
+
+/* 
+
+When you position elements, you might overlap elements between themselves. For example, you might have an icon and you have text over that displayed icon.
+
+by using the z-index property, you can speficy the stack order of an element which allows you to decide which element is in front ofm or behind,the others.
+
+*/
+
+img { /* ICON */
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1; /* -1 means that it is the first in the stack, in other words, behind. */
+}
+
+/*------------------
+    CSS OVERFLOW
+-------------------*/
+
+/*
+
+Controls what happens once the content starts to become to big to be able to fit on the page. 
+
+You can either:
+    clip content
+    add scrollbars
+
+Overflow property values:
+    visible -> means that it is NOT CLIPPED and it renders OUTSIDE its container. (DEFAULT)
+    hidden -> overflow IS CLIPPED and what ever is rendered outside the container, IS HIDDEN.
+    scroll -> overflow IS CLIPPED and a scrollbar is added in order to display the content that renders outside the container. It could add a horizontal and vertical scrollbar.
+    auto -> Very much like scroll, ONLY adds scrollbar when necessary.
+
+The overflow-x and overflow-y properties specifies whether to change the overflow of content just horizontally or vertically (or both) 
+
+NOTE: It only works with elements that have a specified height. 
+
+*/
+
+/* visible */
+div {
+  width: 200px;
+  height: 50px;
+  background-color: #eee;
+  overflow: visible;
+}
+
+/* hidden */
+
+div {
+  overflow: hidden;
+}
+
+/* scroll */
+
+div {
+    overflow: scroll;
+}
+
+/* auto */
+
+div {
+    overflow: auto;
+}
+
+/* overflow-x and overflow-y */
+
+div {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll; /* Add vertical scrollbar */
+}
+
+/*---------------
+    CSS FLOAT
+----------------*/
+
+/*
+
+    ****Float-based layouts have mostly been replaced with Flexbox in modern websites****
+
+    With the float property, you can take an element out of the normal flow of the page and place it along the left or right edge side of its CONTAINING block OR another floated element. 
+    NOTE: TEXT and INLINE elements will then wrap around this element, since they dont start on a new line. 
+          BLOCK-level elements will just start on the next line and not beside it.  
+
+    Float property value:
+        none <-- default
+        left
+        right
+        inherit <-- inherits the float property from its parent
+
+    Block level elements are aligned with floats and auto-margins for center alignment.
+    Inline level elements are aligned with the text-align property.   
+
+    Floated boxes always align to the left or right of their parent element.
+
+    With the clear property, you can specify if elements are allowed to float beside the element you currently want to use clear on. 
+    This means that you can specify if you can have floating elements on the right, left or both of the current element. 
+
+    A cleared element always appears after any floats. It’s like forcing a box back into the default vertical flow of the page.
+
+    Clear property value:
+        none <-- default
+        left <- dont left floating elements float to the right of this element. 
+        right <- dont right floating elements float to the right of this element. 
+        both <- dont let floating element float around this element
+        inherit
+    
+    Therefore, the most common way of using the clear property is right after you've used the float property on an element.
+
+    When clearing floats, you should match the clear to the float: If an element is floated to the left, then you should clear to the left. 
+    Your floated element will continue to float, but the cleared element will appear below it on the web page.
+
+    Clearing floats only fixes the height issue when both elemetns are in the same container. But once one element is out the container, the container with the floated elements
+    will become empty since the elements are taken out of the normal flow of the page.
+
+    SOLUTION:
+
+        1.You can either use another <div> after the floated elements in the container and clear that div.
+        2. Use the overflow property with hidden value which will tell the container to recognize the height of the floated elements it contains.
+           Remember that the hidden value will clip the text/content depending of the height of the container. If there is no height, it will grow
+           automatically height wise to clip the content once the content is done. (go see example @ https://www.w3schools.com/CSSref/pr_pos_overflow.asp)
+        3. Proper CLEARFIX hack explained afterwards. (best solution)
+
+    ********NOTE************
+    IF AN ELEMENT IS TALLER THAN THE ELEMENT CONTAINING IT, (like an image that lays in a div, with 50px of height while the div is 30px), and that element is floated, it will
+    overflow outside of its container. 
+
+    To correct this, you can use the CLEARFIX hack. --> youll learn more about the ::after in the pseudo-element section
+
+*/
+
+div.left{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    float: left; /* float it to the left */
+}
+  
+div.right{
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    clear: left; /* dont let this div have elements that float on its left. */
+    float: right; /* float it to the right */
+}
+
+
+/* CLEARFIX */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Creating equal WIDTH boxes */
+
+/* 
+
+Using the float property, you can stack boxes by making sure you use width and % to divide the boxes in equal amounts to fix the width of the page 
+
+*NOTE: When you add something that enlarges the width of each box (e.g. padding or borders), the box will break and it will become larger. It is important
+       to use box-sizing when it comes to splitting boxes eqqual widths. This will allow your padding and border to take part of the total width of the box, 
+       which makes sure that the padding stays inside the box and it does not break.
+
+Reminder: Percentages in CSS are relative to the width of the parent element.
+
+*/
+
+* {
+    box-sizing: border-box; /* allows boxes to fit properly */
+}
+  
+.box1 {
+    background-color: red;
+    float: left;
+    width: 33.33%; /* three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 50px; /* if you want space between the images */
+}
+  
+.box2 {
+    background-color: blue;
+    float: right;
+    width: 33.33%; /* three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 50px; /* if you want space between the images */
+}
+
+.box3 {
+    background-color: blue;
+    float: right;
+    width: 33.33%; /* three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 50px; /* if you want space between the images */
+}
+
+/* Creating equal HEIGHT boxes */
+
+/*
+
+Not easy to create boxes with equal heights since the boxes will most likely not have the same amount of content in them.
+
+A quick fix is to set a fixed height for the boxes but note that if the content doesnt fit the box anymore, then the content
+will overflow and it wont clip.
+
+THIS IS NOT VERY FLEXIBLE. This is where CSS3 Flexbox comes in handy since it can automatically stretch boxes to be as long as the longest box.
+
+*/
+
+/*----------------------
+    CSS INLINE-BLOCK
+-----------------------*/
+
+/*
+    Allows you to set height and width.
+
+    top and bottom margins/paddings are respected
+
+    Inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+    Inline-block is used to Create Navigation Links
+
+*/
+
+span {
+    display: inline-block; /* comment this out to see the difference */
+    background-color: red;
+    padding: 100px; /* check the behaviour */
+    margin: 10px; /* check the behaviour */
+    height: 100px; /* check the behaviour */
+}
+
+/*---------------
+    CSS ALIGN
+----------------*/
+
+/* Center align elements */
+
+.center {
+    margin: 0 auto; /* auto will take the left margin and right margin, and split it in two equal sizes. If you use percentage instead, it will only work for one fix width, it will not be centered automatically */
+    /*  In other words, auto means that the width of our element (as well as the right and left measurements of padding and border, if any) will be subtracted from the container element’s width.
+        The leftover space will be divided into two equal parts and assigned to the margin on the right and the left providing us with a horizontally centered element. */
+    width: 50%; /* Width needs to be set to something and it cannot be 100%. If it is not, then you will not see the end result. */
+    border: 3px solid green;
+    padding: 10px;
+}
+    
+/* Center align text */
+
+.center {
+    text-align: center; /* centers text */
+    border: 3px solid green;
+}
+
+/* Center an image */
+
+img {
+    display: block; /* auto won’t work with floated and inline elements, therefore we need a block. Since inline elements and floats do take the full width of the page, auto has no reference to play with. */
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+/* Center vertically - using padding */
+
+.center {
+    padding: 70px 0; /* will use 70px for top and bottom */
+    border: 3px solid green;
+}
+
+/* Center vertically and horizontally - using padding */
+
+.center {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center; /* add this */
+}
+
+/*--------------------
+    CSS COMBINATORS
+---------------------*/
+
+/* 
+
+    Combinator = describes relationship between selectors
+
+    We have 4 types:
+        descendant selector (space)
+        child selector (>)
+        adjacent sibling selector (+)
+        general sibling selector (~)
+
+*/
+
+/* Descentdant selector */
+
+div p { /* all the paragraphs that are INSIDE the div element */
+    background-color: yellow;
+}
+
+/* child selector */
+
+div > p { /* all the paragraphs that are IMIDIATE childs (not grand child or grand grand child) of the div element */
+    background-color: yellow;
+}
+
+/* Adjacent sibling selector */
+
+div + p { /* all the paragraphs that are placed immediately after the div elements (NOT inside) */
+    background-color: yellow;
+}
+
+/* General sibling selector */
+
+div ~ p { /* all the paragraphs that are siblings of the div elements / that follow the div element */
+    background-color: yellow;
+}
+
+/*------------------------
+    CSS PSEUDO-CLASSES
+-------------------------*/
+
+/*
+
+pseudo-class is used to define a special state of an element.
+
+	syntax:
+		selector:pseudo-class {
+  			property:value;
+		}
+
+When we were tkaing a look at links, we saw pseudo classes for the anchor element like:
+	:link --> unvisited link 
+	:visited --> visited link 
+	:hover --> hover link 
+	:active --> active link 
+
+*/
+
+/* Pseudo classes can be combined with CSS classes */
+
+a.highlight:hover { /* highlight class for the anchor element with the pseudo class of hover */
+  color: #ff0000;
+}
+
+/* Hover on a div element */
+
+div:hover {
+  background-color: blue;
+}
+
+/* Hover on a div to make the element inside appear */
+
+p {
+  display: none; /* note how on its normal state (no pseudo class), the element is hidden) */
+  background-color: yellow;
+  padding: 20px;
+}
+
+div:hover p { /* note that div p:hover it not the same as this. We want the div to react to hover and then affect p */
+  display: block; /* once we hover on it, then the display property changes */
+}
+
+/* The :first-child pseudo-class */
+
+/* This affects the elements first child of another element in your HTML. */ 
+
+p:first-child { /* every first-child p will be targeted */
+  color: blue;
+}/* try using a p in your body and a nested p in a div, see what happens */
+
+/* pseudo-classes order */
+
+/* Note the difference between these two examples */
+
+p i:first-child { /* Go in every paragraph and in it, find the i element first-child and change the color to blue */
+  color: blue;
+}
+
+p:first-child i { /* Go in the first-child of paragraph, and every change the color to blue of every single i element in it */
+  color: blue;
+}
+
+/* 
+
+There are alot of pseudo classes in CSS. Here are all the pseudo classes you will find:
+
+:active	                a:active	                        Selects the active link
+:checked	            input:checked	                    Selects every checked <input> element
+:disabled	            input:disabled	                    Selects every disabled <input> element
+:empty	                p:empty	                            Selects every <p> element that has no children
+:enabled	            input:enabled	                    Selects every enabled <input> element
+:first-child	        p:first-child	                    Selects every <p> elements that is the first child of its parent
+:first-of-type	        p:first-of-type	                    Selects every <p> element that is the first <p> element of its parent
+:focus	                input:focus	                        Selects the <input> element that has focus
+:hover	                a:hover	                            Selects links on mouse over
+:in-range	            input:in-range	                    Selects <input> elements with a value within a specified range
+:invalid	            input:invalid	                    Selects all <input> elements with an invalid value
+:lang(language)	        p:lang(it)	                        Selects every <p> element with a lang attribute value starting with "it"
+:last-child	            p:last-child	                    Selects every <p> elements that is the last child of its parent
+:last-of-type	        p:last-of-type	                    Selects every <p> element that is the last <p> element of its parent
+:link	                a:link	                            Selects all unvisited links
+:not(selector)	        :not(p)	                            Selects every element that is not a <p> element
+:nth-child(n)	        p:nth-child(2)	                    Selects every <p> element that is the second child of its parent
+:nth-last-child(n)	    p:nth-last-child(2)	                Selects every <p> element that is the second child of its parent, counting from the last child
+:nth-last-of-type(n)    p:nth-last-of-type(2)	            Selects every <p> element that is the second <p> element of its parent, counting from the last child
+:nth-of-type(n)	        p:nth-of-type(2)	                Selects every <p> element that is the second <p> element of its parent
+:only-of-type	        p:only-of-type	                    Selects every <p> element that is the only <p> element of its parent
+:only-child	            p:only-child	                    Selects every <p> element that is the only child of its parent
+:optional	            input:optional	                    Selects <input> elements with no "required" attribute
+:out-of-range	        input:out-of-range	                Selects <input> elements with a value outside a specified range
+:read-only	            input:read-only	                    Selects <input> elements with a "readonly" attribute specified
+:read-write	            input:read-write	                Selects <input> elements with no "readonly" attribute
+:required	            input:required	                    Selects <input> elements with a "required" attribute specified
+:root	                root	                            Selects the document's root element
+:target	                #news:target	                    Selects the current active #news element (clicked on a URL containing that anchor name)
+:valid	                input:valid	                        Selects all <input> elements with a valid value
+:visited	            a:visited	                        Selects all visited links
+
+source: https://www.w3schools.com/css/css_pseudo_classes.asp
+
+*/
+
+/*-------------------------
+    CSS PSEUDO-ELEMENTS
+--------------------------*/
+
+/*
+
+pseudo-elements are used to style certain parts of one element.
+	
+	ex:
+		style the first letter, or line, of an element
+		Insert content before, or after, the content of an element
+
+	Syntax:
+		selector::pseduo-element{
+			property: value;
+		}
+
+*/
+
+/* first-line pseudo element */
+
+/*
+	It can only be applied to block-level elements.
+
+	You can use the following properties on this type of pseudo-element:
+
+		font properties
+		color properties
+		background properties
+		word-spacing
+		letter-spacing
+		text-decoration
+		vertical-align
+		text-transform
+		line-height
+		clear
+
+*/
+
+p::first-line { /* Adds special style to the first line of text */
+    color: #ff0000;
+    font-variant: small-caps;
+}
+  
+/* first-letter pseudo element */
+
+
+/*
+    It can only be applied to block-level elements.
+
+    You can use the following properties on this type of pseudo-element:
+
+        font properties
+        color properties
+        background properties
+        margin properties
+        padding properties
+        border properties
+        text-decoration
+        vertical-align(only if "float" is "none")
+        text-transform
+        line-height
+        float
+        clear
+
+*/
+
+p::first-letter { /* Adds special style to the first letter of text */
+color: #ff0000;
+font-size: xx-large;
+}
+
+/* Combining pseudo-elements with classes */
+
+p.intro::first-letter { /* targets the first-letter of every intro paragraph */
+color: #ff0000;
+font-size:200%;
+}
+
+
+/* Multiple pseudo-elements */
+
+p::first-letter { /* first letter of paragraphs is red with a font size of xx-large */
+color: #ff0000;
+font-size: xx-large;
+}
+
+p::first-line { /* first line is blue and the rest of the whole line will be written is small caps */
+color: #0000ff;
+font-variant: small-caps;
+}
+
+/* Before pseudo-element */
+
+/*	
+    Allows you to insert some content before the selected element 
+*/
+
+h1::before { /* will insert a smiley face before EVERY h1 tag */
+content: url(smiley.gif);
+}
+
+/* After pseudo-element */
+
+/*	
+    Allows you to insert some content after the selected element 
+*/
+
+h1::after { /* will insert a smiley face after EVERY h1 tag */
+content: url(smiley.gif);
+}
+
+/* Selection pseudo-element */
+
+/*
+    Allows you to do something to the element when the user uses the mouse cursor to select the element.
+    
+    You can use the following properties on this type of pseudo-element:
+        color
+        background
+        cursor	
+        outline
+*/
+
+/* All CSS Pseudo Elements*/
+
+/*
+
+::after		p::after	Insert something after the content of each <p> element
+::before	p::before	Insert something before the content of each <p> element
+::first-letter	p::first-letter	Selects the first letter of each <p> element
+::first-line	p::first-line	Selects the first line of each <p> element
+::selection	p::selection	Selects the portion of an element that is selected by a user
+
+*/
+
+
+/*-----------------
+    CSS OPACITY
+------------------*/
+
+/* 
+    Opacity property specifies the opacity/transparency of an element 
+*/
+
+/* Transparent image */
+
+img {
+    opacity: 0.5; /* 0.5 is medium opacity, the lower the value, the more transparent */
+
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+/* Transparent hover effect */ 
+
+/*
+    Use the hover pseudo-class together with the opacity to create cool effects 
+*/
+
+img {
+    opacity: 0.5;
+
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+img:hover { /* once you hover, "reveal" the image with an opacity of 1 */
+    opacity: 1.0;
+
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/* Transparent box */
+
+/*
+    You can add transparency to the background of an element, all of its child elements inherit 
+    the same transparency. --> like the text can be affected 
+*/
+
+div {
+    opacity: 0.3;
+
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+
+/* Transparency using RGBA */
+
+/* Instead of using opacity we can use RGBA to specify an elements transparency */
+div {
+    background: rgba(76, 175, 80, 0.3) /* Green background with 30% opacity */
+}
+  
+/*---------------------
+    CSS IMAGE SPRITE
+----------------------*/
+
+/*
+
+    An image sprite is simply a collection of images put together into a single image.
+
+    In a web page, there are many images. Once we request the page to ther server, it also generates multiple server requests to obtain all the images.
+
+    Using image sprites, we can reduce the number of server requests and save bandwidth. <-- Performance increases
+        bandwidth: is also the amount of data that can be transmitted in a fixed amount of time. 
+
+    Imagine one image that has a collection of images. Write image sprites on google! You'll see. 
+*/
+  
+#home {
+    width: 46px;/* width size of icon on the sprite sheet */
+    height: 44px;/* height size of icon on the sprite sheet */
+    background: url(img_navsprites.gif) 0 0; /* <-- 0 0 represents left 0px and top 0px. If left is negative (-), then we are traveling right and if top is negative (-) then we are traveling down on the image. */
+}
+  
+/*-----------------------------
+    CSS ATTRIBUTE SELECTORS
+------------------------------*/
+
+/*  
+    We can style certain HTML elements that have speficic attributes or attribute values
+
+    The [attribute] selector is able to select elements with that specific attribute
+
+    The [attribute=value] selector is able to select elements with that specific attribute and that specific value to it.
+
+    The [attribute~="value"] selector is used to select elements with an attribute value containing a specified word.
+
+    The [attribute|="value"] selector is used to select elements with the specified attribute starting with the specified value.
+
+    The [attribute^="value"] selector is used to select elements whose attribute value begins with a specified value.
+
+    The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
+
+    The [attribute*="value"] selector is used to select elements whose attribute value contains a specified value.
+*/
+
+a[target] { /* all the anchor elements with the target attribute inside of them, put yellow background on them */
+    background-color: yellow;
+}
+
+a[target="_blank"] { /* target attribute with the _blank value */
+    background-color: yellow;
+}
+
+[title~="flower"] { /* match elements with title="flower", title="summer flower", and title="flower new", but not title="my-flower" or title="flowers". */
+    border: 5px solid yellow;
+}
+
+[class|="top"] { /* match elements with class="top", class="top-header", class="top-text", class="topcontent" */
+    background: yellow;
+}
+
+[class^="top"] { /* match elements with class="top header", class="top-text", class="topcontent" */
+    background: yellow;
+}
+
+[class$="test"] { /* match elements with class="first_test", class="secondtest", class="my-test", class="mytest" */
+    background: yellow;
+}
+
+[class*="te"] { /* match elements with class="secotend", class="first_test", class="my-test", class="mytest" */
+    background: yellow;
+}
+
+/*---------------
+    CSS FORMS
+----------------*/
+
+/*
+    You can style specific input types using the attribute selectors like:
+
+    input[type=text] - will only select text fields
+    input[type=password] - will only select password fields
+    input[type=number] - will only select number fields
+    etc..
+
+    Visit: https://www.w3schools.com/css/css_form.asp if you want to see some cool input styles and tricks.
+
+*/
+  
+/*-----------------
+    CSS COUNTERS
+------------------*/
+
+/*
+
+CSS counters are like "variables". The variable values can be incremented by CSS rules (which will track how many times they are used).
+
+To work with CSS counters we will use the following properties:
+
+counter-reset - Creates or resets a counter
+counter-increment - Increments a counter value
+content - Inserts generated content <-- Used with the ::before and ::after pseudo-elements, to insert generated content
+counter() or counters() function - Adds the value of a counter to an element
+To use a CSS counter, it must first be created with counter-reset.
+
+*/
+  
+body {
+    counter-reset: section; /* creates a counter for the page */
+}
+  
+h2::before {
+    counter-increment: section; /* increments the counter value for each <h2> element */
+    content: "Section " counter(section) ": "; /* increments the counter value for each <h2> element */
+} 
+  
+/*---------------------
+    CSS SPECIFICITY
+----------------------*/
+
+/*
+
+    If there are two or more conflicting CSS rules that point to the same element, the browser follows some rules to determine which one is most specific and therefore wins out.
+
+    Think of specificity as a score/rank that determines which style declarations are ultimately applied to an element.
+
+    The universal selector (*) has low specificity, while ID selectors are highly specific! 
+
+    What is the Hierarchy?
+
+        Inline styles --> <h1 style="color: #ffffff;">
+        ID's --> #navbar
+        Classes, attributes and pseudo-classes --> .classes, [attributes], :hover, :focus, etc
+        Elements and pseudo-elements --> h1, div, ::before, ::after
+
+    Calculating Specificity?
+
+        Inline styles --> 1000
+        ID's --> 100
+        Classes, attributes and pseudo-classes --> 10
+        Elements and pseudo-elements --> 1
+
+    Equal specificity means that the last rule is the one that counts
+
+*/
+
+/* Example */
+A: h1 /* specificity of A is 1 */
+B: #content h1 /* specificity of B is 101 */
+C: <div id="content"><h1 style="color: #ffffff">Heading</h1></div> /* specificity of C is 1000 */
+  
+/* ID selectors have a higher specificity than the attributes selectors */
+div#a {background-color: green;} /* <-- This one WINS */
+#a {background-color: yellow;}
+div[id=a] {background-color: blue;}
+
+/* A class selector beats any number of element selectors */
+
+/* NOTE we have <h1 class="intro">Hello</h1> */
+.intro {background-color: yellow;} /* This one wins */
+h1 {background-color: red;}
+
+/*------------------------
+    CSS ROUNDED CORNERS
+-------------------------*/
+
+/* 
+
+Property that allows you to add rounded corners to element's 
+
+    CSS border radius properties:
+
+    border-radius: sets all four corners
+    border-top-left-radius
+    border-top-right-radius
+    border-bottom-right-radius 
+    border-bottom-left-radius
+
+*/
+
+/* border radius */
+
+p{
+    border-radius: 30px; /* all corners */
+}
+
+p{
+    border-top-left-radius: 15px;
+}
+
+p{
+    border-top-right-radius: 15px;
+}
+
+p{
+    border-bottom-right-radius: 15px;
+}
+
+p{
+    border-bottom-left-radius: 15px;
+}
+
+/* short hand notation */
+
+p{
+    border-radius: 15px 50px 30px 5px; /* top-left corner, top-right corner, bottom-right corner, bottom-left corner */
+}
+ 
+p{
+    border-radius:15px 50px 30px; /* top-left corner, top-right and bottom-left corners, bottom-right corner */
+}
+
+p{
+    border-radius: 15px 50px; /* top-left and bottom-right corners, top-right and bottom-left corners */
+}
+
+p{
+    border-radius: 25px; /* all four */
+}
+
+/*-----------------------
+    CSS BORDER IMAGES
+------------------------*/
+
+/*
+
+    Instead of using the predefined border styles in CSS, 
+    You can specify an image to be used as the border around an element. This property can be
+    applied to any element.
+
+    CSS border image properties:
+
+    1.The image to use as the border
+    2.Where to slice the image
+    3.Define whether the middle sections should be repeated or stretched
+
+    border-image-source:	Specifies the source of the border image (default: none)
+    border-image-slice: 	Tells the browser where to 'slice' the image to create the pieces of the border. Image is divided in 9 sections --> the four corners, the four sides, and the center. 
+                            Unitless or % values. They measure from top, riht, bottom and left edges.
+    border-image-width:	    Specifies the widths of the border image
+    border-image-outset:	Specifies the amount by which the border image area extends beyond the border box
+    border-image-repeat:	Specifies whether the border image should be repeated, rounded or stretched
+
+    *NOTE* For border-image to work, the element also needs the border proeprty set. 
+
+*/
+
+/* Short hand property */
+#borderimg { 
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 100 round;
+}
+
+/*
+
+IMAGE SLICED IN 9 PIECES
+
+|--LEFT---|               |-------RIGHT-------|
+ _____________________________________________  _
+|         |               |                   |  |
+|         |               |                   |  |
+|   1     |       5       |         2         |  | TOP
+|         |               |                   |  |
+|_________|_______________|___________________| _|
+|         |               |                   | 
+|         |    CENTER     |                   |
+|   8     |       9       |         6         |
+|_________|_______________|___________________| _
+|         |               |                   |  |
+|    4    |       7       |          3        |  | BOTTOM
+|_________|_______________|___________________| _|
+
+Zones 1-4 are corner regions. Each one is used a single time to form the corners of the final border image.
+Zones 5-8 are edge regions. These are repeated, scaled, or otherwise modified in the final border image to match the dimensions of the element.
+Zone 9 is the middle region. It is discarded by default, but is used like a background image if the keyword fill is set.
+
+*/
+
+/* border source */
+#borderimg {
+    border-image-source: url(border.png);
+}
+
+/* border width */
+#borderimg {
+    border-image-width: 1;
+}
+
+/* border ofset */
+#borderimg {
+    border-image-outset: 0;
+}
+
+/* border repeat */
+#borderimg {
+    border-image-repeat: stretch;
+}
+
+/* All sides */
+#borderimg {
+    border-image-slice: 30%;
+}
+/* vertical | horizontal */
+#borderimg {
+    border-image-slice: 10% 30%;
+}
+/* top | horizontal | bottom */
+#borderimg {
+    border-image-slice: 30 30% 45;
+}
+/* top | right | bottom | left */
+#borderimg {
+    border-image-slice: 7 12 14 5; 
+}
+/* Using the `fill` keyword */
+#borderimg {
+    border-image-slice: 10% fill 7 12;
+}
+
+/*-------------------
+    CSS GRADIENTS 
+--------------------*/
+
+/*
+    A gradient is a directional change in the intensity or color in an image.
+
+    Two types of gradients in CSS:
+
+    Linear Gradients (goes down/up/left/right/diagonally)
+        Must define at least two color stops (color stops are the colors you want to render smooth transitions among).
+
+        background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+        (default) top to bottom for direction)
+
+        with angles: (The angle is specified as an angle between a horizontal line and the gradient line.)
+        background-image: linear-gradient(angle, color-stop1, color-stop2);
+
+    Radial Gradients (defined by their center)
+        To create a radial gradient you must also define at least two color stops.
+
+        background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+
+        By default, shape is ellipse, size is farthest-corner, and position is center.
+
+*/
+
+/* linear gradients */
+#grad {
+    background-image: linear-gradient(red, yellow); /* top to bottom is default */
+}
+
+#grad {
+    background-image: linear-gradient(to right, red , yellow); /* left to right */
+}
+
+#grad {
+    background-image: linear-gradient(to bottom right, red, yellow); /* from top left to bottom right */
+}
+
+/* linear gradients with angles */
+#grad {
+    background-image: linear-gradient(-90deg, red, yellow);
+}
+
+/* Using multiple colors */
+#grad {
+    background-image: linear-gradient(red, yellow, green); /* top to bottom */
+}
+
+#grad {
+    background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); /*left to right */
+}
+
+/* gradients with transparency (use rgba) */
+
+#grad {
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); /* left to right */
+}
+
+/* repating linear gradients */
+#grad {
+    background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+}
+
+/* radial gradients */
+#grad {
+    background-image: radial-gradient(red, yellow, green); /* default */
+}
+
+#grad {
+    background-image: radial-gradient(red 5%, yellow 15%, green 60%); /* differently spaced color stops */
+}
+
+/* different shape for radial gradients */
+#grad {
+    background-image: radial-gradient(circle, red, yellow, green); /* instead of ellipse we need a circle */
+}
+
+/* different size keywords */
+
+/* 
+
+    The size parameter defines the size of the gradient. It can take four values:
+
+    closest-side
+    farthest-side
+    closest-corner
+    farthest-corner
+
+*/
+
+#grad1 {
+    background-image: radial-gradient(closest-side at 60% 55%, red, yellow, black);
+}
+  
+#grad2 {
+    background-image: radial-gradient(farthest-side at 60% 55%, red, yellow, black);
+}
+
+/* repeated radial-gradient */
+#grad {
+    background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+}
+
+/*-----------------
+    CSS SHADOWS 
+------------------*/
+
+/*
+
+    You can add shadows to elements in HTML and to text too. 
+    
+    Two important properties to take into account:
+        text-shadow <-- applies to text only
+        box-shadow <-- only applies to elements 
+ */
+
+ /* text shadow */
+h1 {
+    text-shadow: 2px 2px; /* horizontal, vertical */
+}
+
+/* color to text shadow */
+h1 {
+    text-shadow: 2px 2px red;
+}
+
+/* blur to text shadow */
+h1 {
+    text-shadow: 2px 2px 5px red; /* Third value is the blur */
+}
+
+/* multiple shadows */
+h1 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; /* comma-separated list of shadows */
+}
+
+/* box-shadow */
+div {
+    box-shadow: 10px 10px;
+}
+
+/* color to box-shadow */
+div {
+    box-shadow: 10px 10px grey;
+}
+
+/* blur to box-shadow */
+div {
+    box-shadow: 10px 10px 5px grey;
+}
+
+/*---------------------
+    CSS TEXT EFFECTS 
+----------------------*/
+
+/*
+
+    You can have some cool text effects like:
+        text-overflow <-- if text doesnt fit in container, then text will cut and there will be three points.
+            values: clip, ellipsis or string
+        word-wrap <-- allows long words to be able to be broken and wrap onto the next line
+        word-break <-- specifies line breaking rules
+        writing-mode <-- specifies whether lines of text are laid out horizontally or vertically.
+
+*/
+
+/* text-overflow */
+p.test1 {
+    white-space: nowrap; 
+    width: 200px; 
+    border: 1px solid #000000;
+    overflow: hidden;
+    text-overflow: clip; 
+}
+  
+p.test2 {
+    white-space: nowrap; 
+    width: 200px; 
+    border: 1px solid #000000;
+    overflow: hidden;
+    text-overflow: ellipsis; /* add three points */
+}
+
+/* word-wrap*/
+p {
+    word-wrap: break-word;
+}
+
+/* word-break */
+p.test1 {
+    word-break: keep-all;
+}
+  
+p.test2 {
+    word-break: break-all;
+}
+
+/* writing-mode */
+p.test1 {
+    writing-mode: horizontal-tb; 
+}
+
+span.test2 {
+    writing-mode: vertical-rl; 
+}
+
+p.test2 {
+    writing-mode: vertical-rl; 
+}
+
+
+/*-------------------
+    CSS WEB FONTS 
+--------------------*/
+
+/*
+
+    If you want to use your own fonts, remember that the users computer will mostlikely not have them installed. THEREFORE, you need to include the font file on the server
+    which will automatically be downloaded to the user when needed. 
+
+    Your "own" fonts are defined within the CSS @font-face rule.
+
+    Font formats:
+
+    TTF (TrueType Fonts) --> Most common format for mac and windows
+    OTF (OpenType Fonts( --> registered trademark of microsoft commonly used on the major computer platforms
+    WOFF (Web Open Font Format) --> Its basically OTF or TTF with compression and additional metadata
+    WOFF 2.0 --> better compression
+    SVG fonts/shapes --> SVG fonts allow SVG to be used as glyphs when displaying text
+    EOT (Embedded OpenType Fonts)  --> compact form of OpenType fonts designed by Microsoft for use as embedded fonts on web pages.
+
+*/
+
+ /* how to use it */
+
+@font-face {
+    font-family: myFirstFont; /* first define a name for the font  */
+    src: url(sansation_light.woff); /* then point to the font file */
+}
+
+div {
+    font-family: myFirstFont; /* use it on this div */
+}
+
+/* if you want bold text ,you need to add that rule */
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_bold.woff);
+    font-weight: bold;
+}
+
+/*----------------------
+    CSS 2D TRANSFORMS 
+-----------------------*/
+
+/*
+
+CSS transforms allow you to translate, rotate, scale, and skew elements.
+
+2D Transformations:
+    translate() <-- moves an element from its current position, it simply translates it.
+    rotate() <-- rotates an element clockwise or counter-clockwise according to a given degree.
+    scale() <-- method increases or decreases the size of an element
+    skewX() <-- skews an element along the X-axis by the given angle.
+    skewY() <-- skews an element along the Y-axis by the given angle.
+    matrix() <-- combines all the 2D transform methods into one.
+
+*/
+
+/* translates */
+
+div {
+    transform: translate(50px, 100px);
+}
+
+/* rotation */
+div {
+    transform: rotate(20deg); /* positive = clock wise and negative = counter-clockwise */
+}
+
+/* scale */
+div {
+    transform: scale(2, 3); /* widht, hegiht --> you can also scale down by using floating point numbers like 0.5 */
+}
+
+/* skewX */
+div {
+    transform: skewX(20deg);
+}
+
+/* skewY */
+div {
+    transform: skewY(20deg);
+}
+/* skew general */
+div {
+    transform: skew(20deg, 10deg); /* x and y */
+}
+
+/* matrix */
+
+div{
+    transform: matrix(1, -0.3, 0, 1, 0, 0); /* scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY() */
+}
+
+/*----------------------
+    CSS 3D TRANSFORMS 
+-----------------------*/
+
+/*
+
+CSS allows you to format your elements using 3D transformations.
+
+3D Transformations:
+    rotateX() <-- rotates an element around its X-axis at a given degree
+    rotateY() <-- rotates an element around its Y-axis at a given degree
+    rotateZ() <-- rotates an element around its Z-axis at a given degree
+
+    There are quite a lot more, visit https://www.w3schools.com/css/css3_3dtransforms.asp to check them out.
+
+*/
+
+/* rotateX */
+#myDiv {
+    transform: rotateX(150deg);
+}
+
+/* rotateY */
+#myDiv {
+    transform: rotateY(130deg);
+}
+
+/* rotateZ */
+#myDiv {
+    transform: rotateZ(90deg);
+}
+
+/*---------------------
+    CSS TRANSITIONS 
+----------------------*/
+
+/*
+
+    Allows you to change elements properties smoothly within a given time frame. 
+
+    To create such an effect, you need to specify two things:
+
+        The CSS property you want the transition to happen too (ex: width)
+        The duration of the effect. (default is 0)
+
+
+*/
+
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    transition: width 2s; /* I was the width to be affected by 2s */
+}
+
+/* The transition effect will start when the specified CSS property (width) changes value */
+div:hover {
+    width: 300px;
+}
+
+/* adding multiple effects */
+div {
+    transition: width 2s, height 4s; /* width and height will be affected at different speeds */
+}
+
+/* you can also add a delay */
+div {
+    transition-delay: 1s; /* add this after you define the transition */
+}
+
+/* Transition + Transformation */
+div{
+    transition: width 2s, height 2s, transform 2s; /* just use the tranform property and add what ever you want to add, this will last for 2 seconds */
+}
+
+/*--------------------
+    CSS ANIMATIONS 
+---------------------*/
+
+/* 
+
+CSS animations allows animation of most HTML elements without using JavaScript or Flash!
+
+An animation lets an element gradually change from one style to another.
+You can change as many CSS properties you want, as many times you want.
+To use CSS animation, you must first specify some keyframes for the animation.
+Keyframes hold what styles the element will have at certain times.
+
+@keyframe rule --> animation will gradually change from the current style to the new and then go back to current
+
+*/
+
+/* The animation code */
+@keyframes example {
+    from {background-color: red;} /* from this style */
+    to {background-color: yellow;} /* to this */
+}/* ***NOTE**** YOU CAN STACK A BUNCH OF PROPERTIES IN BETWEEN THE {} */
+  
+/* The element to apply the animation to */
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s; /* how long it takes to complete, it must be specified or else it will be 0 */
+}
+
+/* instead of using from and too, we can use % where 0% is the start and 100% is the end */
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}
+  
+/* The element to apply the animation to */
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+/* Delay an animation */
+div {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 2s; /* delays for 2 seconds, you can always have negative values */
+}
+
+/* specify how many times an animation should run */
+
+div {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: 3; /* run this animation three times, you can always have a infinite value */
+}
+
+/* animation direction */
+
+/*
+
+This property defines if the animation should run forward, backwards or in alternate cycles:
+
+    normal - The animation is played as normal (forwards). This is default
+    reverse - The animation is played in reverse direction (backwards)
+    alternate - The animation is played forwards first, then backwards
+    alternate-reverse - The animation is played backwards first, then forwards
+
+*/
+
+div {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-direction: reverse; /* you can also have alternate for example */
+}
+
+/* speed curve of the animation */
+
+/* 
+
+    The animation-timing-function property can have the following values:
+
+    ease --> Specifies an animation with a slow start, then fast, then end slowly (this is default)
+    linear --> Specifies an animation with the same speed from start to end
+    ease-in --> Specifies an animation with a slow start
+    ease-out --> Specifies an animation with a slow end
+    ease-in-out --> Specifies an animation with a slow start and end
+    cubic-bezier(n,n,n,n) --> Lets you define your own values in a cubic-bezier function
+
+*/
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+/* fill-mode */
+
+/* 
+
+The animation-fill-mode property specifies a style for the target element when the animation is not playing (before it starts, after it ends, or both).
+
+    none --> Default value. Animation will not apply any styles to the element before or after it is executing
+    forwards --> The element will retain the style values that is set by the last keyframe (depends on animation-direction and animation-iteration-count)
+    backwards --> The element will get the style values that is set by the first keyframe (depends on animation-direction), and retain this during the animation-delay period
+    both --> The animation will follow the rules for both forwards and backwards, extending the animation properties in both directions
+
+*/
+
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+/* short hand property */
+
+/*from*/
+div {
+    animation-name: example;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* to */
+div {
+    animation: example 5s linear 2s infinite alternate;
+}
+
+/*--------------------
+    CSS BOX-SIZING 
+---------------------*/
+
+/* 
+    This property allows you to include the padding and border in an elements total width and height 
+
+    Default --> width + padding + border = actual width of an element
+                height + padding + border = actual height of an element
+    
+*/
+
+/* Take a look at both these elements width in the browser */
+.div1 {
+    width: 300px; /* SAME WIDTH */
+    height: 100px;
+    border: 1px solid blue; 
+}
+  
+.div2 {
+    width: 300px; /* SAME WIDTH */
+    height: 100px;
+    padding: 50px; /* ADDS 50PX ON EACH SIDE SO 100PX IN TOTAL */
+    border: 1px solid red;
+}
+
+/* You can include the padding and border by doing this */
+
+.div1 {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+  
+.div2 {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+    box-sizing: border-box; /* include the padding and border in an element's total width and height */
+}
+
+/*-----------------------
+    CSS MEDIA QUERIES 
+------------------------*/
+
+/*
+
+Allows you to define different style rules for different media types or different sizes of devices.
+
+Media queries can be used to check many things, such as:
+
+    width and height of the viewport --> viewport is the user's visible area of a web page.
+    width and height of the device
+    orientation (is the tablet/phone in landscape or portrait mode?)
+    resolution
+
+A media query consists of a media type and can contain one or more expressions, which resolve to either true or false
+
+    @media not|only mediatype and (expressions) {
+    CSS-Code;
+    }
+
+    mediatypes:
+        all	Used for all media type devices
+        print	Used for printers
+        screen	Used for computer screens, tablets, smart-phones etc.
+        speech	Used for screenreaders that "reads" the page out loud
+
+    expressions:
+        can be something like --> min-width: 480px;
+
+*/
+
+/*example*/
+
+/*
+ This seems like a mobile first approach where "normally" the background will be like pink
+ but once we start using bigger devices that are 480px wider, it will change to lightgreen 
+
+ */
+body {
+    background-color: pink;
+}
+  
+@media screen and (min-width: 480px) {
+
+    body {
+      background-color: lightgreen; /* once its bigger than 480, it will change to this color */
+    }
+
+}
+
+/*-------------------
+    CSS VIEWPORT 
+--------------------*/
+
+/*
+
+    The viewport is the size of the window you're viewing your website on. On desktop, that size is easy to see, its just the size of
+    your browser.
+
+    For mobile, it is not obvious at all. Most mobile browsers by DEFAULT will have a viewport size of about 980px in width.
+    When you try to view a website on the phone, you will notice how the content is all squashed inside in order to fit
+    it into the actual physical width of the screen. It could be a width of 320px. So now imagine trying to fit 980px of content
+    into a physical window of 320px. Everything will look very small and ugly. 
+
+    We need to overwrite this by using the meta viewport tag:
+
+    <meta name="viewport" content="widht=device-width, initial-scale=1"> in the content we overwrite the default width of the browsers by making sure
+    it is responsive. In other words, depending on the device, our viewport will take on that device's width.
+
+    Also the initial-scale is the zoom intensity. So value of 1 is not zoom at all.
+
+*/
+
+
